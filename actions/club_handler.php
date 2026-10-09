@@ -269,6 +269,14 @@ if ($action === 'leave_club') {
         header('Location: /pages/club_list.php');
         exit;
     }
+    // First, remove RSVPs for all events hosted by this club
+    $pdo->prepare(
+        "DELETE FROM event_attendees WHERE user_id = :u AND event_id IN (
+            SELECT id FROM events WHERE club_id = :c
+        )"
+    )->execute([':c' => $clubId, ':u' => current_user_id()]);
+
+    // Then, remove the club membership
     $pdo->prepare(
         "DELETE FROM club_members WHERE club_id = :c AND user_id = :u"
     )->execute([':c' => $clubId, ':u' => current_user_id()]);
