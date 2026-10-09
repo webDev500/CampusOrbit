@@ -18,7 +18,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- App scripts -->
-    <script src="/assets/js/feedback.js"></script>
-    <script src="/assets/js/booking_ajax.js"></script>
+    <script src="/assets/js/feedback.js?v=<?= filemtime(__DIR__ . '/../assets/js/feedback.js') ?>"></script>
+    <script src="/assets/js/booking_ajax.js?v=<?= filemtime(__DIR__ . '/../assets/js/booking_ajax.js') ?>"></script>
 </body>
 </html>
