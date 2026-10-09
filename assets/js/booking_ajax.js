@@ -281,6 +281,7 @@
                 btn.innerHTML = '<i class="bi bi-check2-circle"></i> Attending';
                 // Switch onclick to cancelRsvp
                 btn.setAttribute('onclick', `CampusOrbit.cancelRsvp(${eventId}, this)`);
+                btn.disabled = false;
                 
                 if (window.CampusOrbit && CampusOrbit.toast) {
                     CampusOrbit.toast({ success: true, message: json.message || 'You are now attending!' });
@@ -342,6 +343,7 @@
                 btn.innerHTML = '<i class="bi bi-calendar-plus"></i> Attend';
                 // Switch onclick to rsvp
                 btn.setAttribute('onclick', `CampusOrbit.rsvp(${eventId}, this)`);
+                btn.disabled = false;
                 
                 if (window.CampusOrbit && CampusOrbit.toast) {
                     CampusOrbit.toast({ success: true, message: json.message || 'RSVP cancelled.' });
